@@ -1,0 +1,17 @@
+# Ignore local data and environments
+backend/venv/
+backend/data/
+backend/__pycache__/
+backend/*.db
+backend/*.db-shm
+backend/*.db-wal
+
+frontend/node_modules/
+frontend/dist/
+
+# Ignore logs
+*.log
+
+# Ignore OS files
+.DS_Store
+.git/
