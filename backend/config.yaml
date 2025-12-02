@@ -1,0 +1,38 @@
+# 🧠 AI Configuration File
+# This file controls what the AI looks for in images.
+# You can update this file manually or via the Settings page in the web UI.
+
+domain: "general"
+
+# CLIP Model Settings (Semantic Search)
+clip:
+  model_id: "openai/clip-vit-base-patch32"
+  confidence_threshold: 0.65  # Minimum confidence (0.0 - 1.0) to save a tag
+  
+  # The list of concepts to look for.
+  # The AI is "Zero-Shot", meaning it can recognize these concepts without training.
+  # Add whatever is relevant to your photo collection.
+  labels:
+    # --- General / Nature ---
+    - "landscape with mountains"
+    - "forest trees"
+    - "beach sunset"
+    - "urban city street"
+    
+    # --- People / Events ---
+    - "group of people smiling"
+    - "portrait photo"
+    - "concert stage lights"
+    - "wedding ceremony"
+    - "sports action"
+    
+    # --- Objects / Vehicles ---
+    - "sports car"
+    - "dog or cat"
+    - "delicious food"
+    - "computer screen"
+
+# OCR Settings (Text Recognition)
+ocr:
+  enabled: true
+  languages: ["en"]
