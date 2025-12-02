@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: aigallery-backend
+    restart: unless-stopped
+    volumes:
+      # Persist data (Database + Files)
+      - ./backend/data:/app/data
+      # Hot-reload Config (Optional)
+      - ./backend/config.yaml:/app/config.yaml
+      # Expose README for About page
+      - ./README.md:/app/README.md
+    environment:
+      - SECRET_KEY=unsafe_secret_key_change_me_in_prod
+      - ACCESS_TOKEN_EXPIRE_MINUTES=10080 # 7 days
+    # Default is CPU mode
+
+  frontend:
+    build: ./frontend
+    container_name: aigallery-frontend
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
